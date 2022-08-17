@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>My Items</h1>
+    <a href="/item-add/">
+      <button>Add New Item</button>
+    </a>
+    {% for item in items %}
+    <p>
+      {{ item.name }}
+      <a href="/item-delete/{{item.id}}/">
+        <button>Delete</button>
+      </a>
+      <a href="/item-update/{{item.id}}/">
+        <button>Update</button>
+      </a>
+    </p>
+    {% endfor %}
+  </body>
+</html>

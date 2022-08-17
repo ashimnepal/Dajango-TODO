@@ -1,0 +1,5 @@
+<form action="/item-update/{{item.id}}/" method="post">
+  {% csrf_token %}
+  <input type="text" name="item" value="{{item.name}}">
+  <button type="submit">Add new Item</button>
+</form>
