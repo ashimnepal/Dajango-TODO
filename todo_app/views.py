@@ -1,5 +1,3 @@
-from turtle import title
-from unicodedata import name
 from django.shortcuts import render
 from todo_app.models import Item
 from django.http import HttpResponseRedirect
@@ -15,12 +13,12 @@ def item_list(request):
 
 
 def item_add(request):
-    if request.method == "GET":
-        return render(request, "bootstrap/add_todo.html")
-    else:
-        item = Item(title=request.POST["title"], contents=request.POST['content'])        
+    if request.method == "POST":
+        item = Item(title=request.POST["title"], contents=request.POST['contents'])        
         item.save()
         return HttpResponseRedirect("/")
+    else:
+        return render(request, "bootstrap/add_todo.html")
 
 
 def item_delete(request, pk):
